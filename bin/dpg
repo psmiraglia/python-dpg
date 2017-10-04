@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 
 import argparse
+from dpg.generic import GenericGenerator
+from dpg.google import GoogleGenerator
+
+GENERIC_GENERATOR = "generic"
+GOOGLE_GENERATOR = "google"
+
 
 def main():
     p = argparse.ArgumentParser()
     p.add_argument(
         '-g', '--generator',
-        choices=['generic', 'google'], default='generic',
+        choices=[GENERIC_GENERATOR, GOOGLE_GENERATOR],
+        default=GENERIC_GENERATOR,
         help='To be done...'
     )
 
@@ -29,6 +36,20 @@ def main():
     )
 
     args = p.parse_args()
+
+    if args.generator == GENERIC_GENERATOR:
+        g = GenericGenerator()
+    elif args.generator == GOOGLE_GENERATOR:
+        g = GoogleGenerator()
+    else:
+        raise Exception()
+
+    g.username = args.username
+    g.service = args.service
+    g.counter = args.counter
+
+    print('Your password is: %s' % g.generate())
+
 
 if __name__ == '__main__':
     main()
