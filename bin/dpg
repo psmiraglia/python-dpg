@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import getpass
 from dpg.generic import GenericGenerator
 from dpg.google import GoogleGenerator
 
@@ -48,7 +49,14 @@ def main():
     g.service = args.service
     g.counter = args.counter
 
-    password = g.generate()
+    pp_1 = getpass.getpass("[?] Passphrase: ")
+    pp_2 = getpass.getpass("[?] Passphrase (again): ")
+
+    if pp_1 != pp_2:
+        print("[!] Passphrases are not equal!!!")
+        exit(1)
+
+    password = g.generate(pp_1)
 
     if password:
         print('[+] Your password is: %s' % password)

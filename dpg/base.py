@@ -1,6 +1,5 @@
 import abc
 import base64
-import getpass
 import hashlib
 import re
 
@@ -42,16 +41,9 @@ class AbstractGenerator(abc.ABC):
     def counter(self, counter):
         raise NotImplementedError()
 
-    def generate(self):
-        pp_1 = getpass.getpass("[?] Passphrase: ")
-        pp_2 = getpass.getpass("[?] Passphrase (again): ")
-
-        if pp_1 != pp_2:
-            print("[!] Passphrases are not equal!!!")
-            return ''
-
+    def generate(self, passphrase):
         source = (('%s:%s:%d:%s') %
-                  (self.username, pp_1, self.counter, self.service))
+                  (self.username, passphrase, self.counter, self.service))
         h = hashlib.sha256()
         h.update(bytes(source, 'utf8'))
         e = re.sub(r'[^0-9A-Za-z]', '', base64.b64encode(h.digest()).decode())
