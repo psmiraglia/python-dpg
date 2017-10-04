@@ -50,8 +50,8 @@ class AbstractGenerator(abc.ABC):
             print("Passphrases are not equals!")
             return ''
 
-        source = (('%s:%s:%s:%d') %
-                  (self.username, pp_1, self.service, self.counter))
+        source = (('%s:%s:%d:%s') %
+                  (self.username, pp_1, self.counter, self.service))
         h = hashlib.sha256()
         h.update(bytes(source, 'utf8'))
         e = re.sub(r'[^0-9A-Za-z]', '', base64.b64encode(h.digest()).decode())
