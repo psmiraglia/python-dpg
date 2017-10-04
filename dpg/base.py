@@ -43,11 +43,11 @@ class AbstractGenerator(abc.ABC):
         raise NotImplementedError()
 
     def generate(self):
-        pp_1 = getpass.getpass("Passphrase: ")
-        pp_2 = getpass.getpass("Passphrase (again): ")
+        pp_1 = getpass.getpass("[?] Passphrase: ")
+        pp_2 = getpass.getpass("[?] Passphrase (again): ")
 
         if pp_1 != pp_2:
-            print("Passphrases are not equals!")
+            print("[!] Passphrases are not equal!!!")
             return ''
 
         source = (('%s:%s:%d:%s') %

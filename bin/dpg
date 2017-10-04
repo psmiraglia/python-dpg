@@ -48,7 +48,10 @@ def main():
     g.service = args.service
     g.counter = args.counter
 
-    print('Your password is: %s' % g.generate())
+    password = g.generate()
+
+    if password:
+        print('[+] Your password is: %s' % password)
 
 
 if __name__ == '__main__':
