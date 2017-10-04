@@ -1,4 +1,4 @@
-Deterministing Password Generator (DPG)
-=======================================
+Deterministic Password Generator (DPG)
+======================================
 
 Coming soon...
