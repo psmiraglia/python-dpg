@@ -27,4 +27,4 @@ How to use it
         [?] Passphrase (again): ********
         [+] Your password is: lHh-tjn-2H6-Doy-1Ry
 
-.. _`How I Manage My Passwords (Technical Version)`: https://medium.com/@0x0ece/how-i-manage-my-passwords-technical-version-8549dc1bde1e.
+.. _`How I Manage My Passwords (Technical Version)`: https://hackernoon.com/how-i-manage-my-passwords-technical-version-8549dc1bde1e
